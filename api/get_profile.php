@@ -11,6 +11,7 @@ $query = "SELECT
             u.username, 
             u.email, 
             u.bio, 
+            u.avatar,
             COALESCE(gp.rank_tier, 'Unranked') as rank_tier, 
             COALESCE(gp.role, 'Any') as role,
             COALESCE(g.name, 'No Game') as game_name
