@@ -4,6 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 
 include_once '../config/db_connect.php';
+include_once 'send_push.php'; // <--- NEW: Include the notification helper
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -49,6 +50,15 @@ if(
                 $save_match = "INSERT INTO matches (user_1_id, user_2_id) VALUES (?, ?)";
                 $save_stmt = $conn->prepare($save_match);
                 $save_stmt->execute([$swiper_id, $target_id]);
+
+                // <--- NEW: SEND PUSH NOTIFICATION --->
+                // Notify the Target (the person you just liked)
+                sendPushNotification(
+                    $target_id, 
+                    "New Squad Mate! 🎮", 
+                    "You have a new match! Check your Squads tab.",
+                    ["match_id" => $swiper_id]
+                );
             }
         }
 
