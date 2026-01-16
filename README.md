@@ -166,7 +166,7 @@ The API automatically scans these regions to find player accounts:
 - **CORS:** All endpoints include CORS headers for cross-origin requests from mobile apps.
 
 ## 🔗 Related Repositories
-- Frontend (React Native): [SQUADFINDER-MOBILE](https://github.com/Joe1724/SQUADFINDER-MOBILE)
+- Frontend (React Native): [SQUADFINDER-MOBILE](https://github.com/Joe1724/SQUADFINDERAPP)
 
 ## 📄 License
 MIT License - Feel free to use this project for learning and development.
